@@ -6,6 +6,7 @@
 }
 
 #top-backgnd { height: 50vh; }
+
 #backgnd {
   background: url(https://wallpapercave.com/wp/SGTFbTV.jpg) center 50%/172% no-repeat;
   clip-path: polygon(25% 5%, 50% 0, 75% 5%, 100% 0, 97% 100%, 50% 94%, 3% 100%, 0 0);
@@ -14,6 +15,25 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-around;
+
+  .input {
+    border: none;
+    font-size: 1em;
+    padding: 8px 15px;
+  }
+
+  #city {
+    background: #fff7;
+    border-radius: 5px 0 0 5px;
+    &:focus { background: #fffc; }
+  }
+
+  .submit {
+    background: #e8e8e7;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    margin-left: -5px;
+  }
 }
 
 .bottom { height: 50vh; }

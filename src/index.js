@@ -20,8 +20,8 @@ async function getTemp() {
   console.log(weatherData.weather[0].description);
   console.log(weatherData.weather[0].icon);
 
-  console.log(weatherData.wind.speed);
-  console.log(weatherData.main.humidity);
+  console.log(weatherData.wind.speed); // m/s
+  console.log(weatherData.main.humidity); // %
 }
 
 bttn.onclick = getTemp();

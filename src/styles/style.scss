@@ -45,6 +45,12 @@
     margin-bottom: -15px;
     opacity: 0.6;
     width: 80px;
+    animation: oscill 2s ease-in-out infinite alternate;
+  }
+  @keyframes oscill {
+    100% {
+    transform: translateY(3px) rotate(0.01deg);
+    }
   }
 
   #cloud { width: 65%; }

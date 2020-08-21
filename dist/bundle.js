@@ -130,7 +130,55 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ \"./src/styles/style.scss\");\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst bttn = document.querySelector('.submit');\nconst city = 'Naucalpan';\n\nasync function getTemp() {\n  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=550a45bc4aa9613e4687926216e69765`);\n  const weatherData = await response.json();\n  console.log(weatherData);\n  console.log(weatherData.main);\n\n  console.log(weatherData.name);\n  console.log(weatherData.sys.country);\n\n  console.log(weatherData.main.feels_like);\n  console.log(weatherData.main.temp_max);\n  console.log(weatherData.main.temp_min);\n\n  console.log(weatherData.weather[0].main);\n  console.log(weatherData.weather[0].description);\n  console.log(weatherData.weather[0].icon);\n\n  console.log(weatherData.wind.speed); // m/s\n  console.log(weatherData.main.humidity); // %\n}\n\nbttn.onclick = getTemp();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ \"./src/styles/style.scss\");\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _javascript_app_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./javascript/app-controller */ \"./src/javascript/app-controller.js\");\n\n\n\nObject(_javascript_app_controller__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/api-data.js":
+/*!************************************!*\
+  !*** ./src/javascript/api-data.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst city = 'Naucalpan';\n\nasync function getTemp() {\n  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=550a45bc4aa9613e4687926216e69765`);\n  const weatherData = await response.json();\n  console.log(weatherData);\n  console.log(weatherData.main);\n\n  console.log(weatherData.name);\n  console.log(weatherData.sys.country);\n\n  console.log(weatherData.main.feels_like);\n  console.log(weatherData.main.temp_max);\n  console.log(weatherData.main.temp_min);\n\n  console.log(weatherData.weather[0].main);\n  console.log(weatherData.weather[0].description);\n  console.log(weatherData.weather[0].icon);\n\n  console.log(weatherData.wind.speed); // m/s\n  console.log(weatherData.main.humidity); // %\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (getTemp);\n\n//# sourceURL=webpack:///./src/javascript/api-data.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/app-controller.js":
+/*!******************************************!*\
+  !*** ./src/javascript/app-controller.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom_work__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom-work */ \"./src/javascript/dom-work.js\");\n/* harmony import */ var _api_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api-data */ \"./src/javascript/api-data.js\");\n\n\n\nfunction start() {\n  const rendered = new Promise((resolve, reject) => {\n    Object(_dom_work__WEBPACK_IMPORTED_MODULE_0__[\"render\"])();\n\n    if (_dom_work__WEBPACK_IMPORTED_MODULE_0__[\"elems\"].body.childElementCount > 1) {\n      resolve('Basic HTML rendered OK');\n    } else {\n      reject(new Error('Failed to render'));\n    }\n  });\n\n  rendered.then((message) => {\n    _dom_work__WEBPACK_IMPORTED_MODULE_0__[\"elems\"].bttn.onclick = Object(_api_data__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    console.log(`This is the 'then': ${message}`);\n  });\n  // .catch((message) => {\n  //   console.log(`This is the 'catch': ${message}`);\n  // });\n\n  console.log('This is the rendered promise variable: ');\n  console.log(rendered);\n}\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (start);\n\n//# sourceURL=webpack:///./src/javascript/app-controller.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/dom-work.js":
+/*!************************************!*\
+  !*** ./src/javascript/dom-work.js ***!
+  \************************************/
+/*! exports provided: render, elems */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"elems\", function() { return elems; });\n/* harmony import */ var _layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./layout */ \"./src/javascript/layout.js\");\n\n\nconst render = () => {\n  document.body.innerHTML = _layout__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n};\n\nconst elems = {\n  body: document.body,\n  bttn: document.querySelector('.submit'),\n};\n\n\n\n\n//# sourceURL=webpack:///./src/javascript/dom-work.js?");
+
+/***/ }),
+
+/***/ "./src/javascript/layout.js":
+/*!**********************************!*\
+  !*** ./src/javascript/layout.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst layout = `\n<div id=\"top-backgnd\">\n    <div id=\"backgnd\">\n      <h1 class=\"title\">WEATHER APP</h1>\n      <form action=\"\">\n        <input id=\"city\" class=\"input\" type=\"city\" placeholder=\"CITY\" required>\n        <button class=\"submit input\">&#x1f50d;</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"bottom\">\n    <h4 class=\"date\">August 19, 2020 <img id=\"flag\" src=\"https://flagpedia.net/data/flags/w580/mx.png\" alt=\"\"></h4>\n    <div class=\"info-1\">\n      <div id=\"clouds\" class=\"d\">\n        <p>Sky</p>\n        <img id=\"cloud\" src=\"https://openweathermap.org/img/wn/04d@4x.png\" alt=\"\">\n        <p>broken clouds</p>\n      </div>\n      <div id=\"temp\" class=\"d\">\n        <p class=\"realTemp\">18°</p>\n        <div id=\"degrees\">\n          <span id=\"degc\">C</span>/\n          <span id=\"degf\">F</span>\n        </div>\n        <p class=\"feels\">Feels like: <span class=\"temp2\">12°</span></p>\n        <p class=\"max-min\"><span class=\"temp2\">26°</span> / <span class=\"temp2\">26°</span></p>\n      </div>\n    </div>\n    <div class=\"info-2\">\n      <p id=\"speed\">1008 m/s</p>\n      <p id=\"humidity\">88%</p>\n    </div>\n  </div>\n`;\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (layout);\n\n//# sourceURL=webpack:///./src/javascript/layout.js?");
 
 /***/ }),
 

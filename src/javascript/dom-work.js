@@ -1,27 +1,30 @@
 import layout from './layout';
 
-const elems = {
-  body: document.body,
-  city: document.querySelector('#city'),
-  bttn: document.querySelector('.submit'),
-  title: document.querySelector('.title'),
-  date: document.querySelector('.date'),
-  cloud: document.querySelector('.cloud'),
-  sky: document.querySelector('#sky'),
-  rTemp: document.querySelector('.realTemp'),
-  feels: document.querySelector('.feels'),
-  maxTemp: document.querySelector('.maxTemp'),
-  minTemp: document.querySelector('.minTemp'),
-  speed: document.querySelector('#speed'),
-  humid: document.querySelector('#humidity'),
+const elems = () => {
+  return {
+    body: document.body,
+    city: document.querySelector('#city'),
+    bttn: document.querySelector('#submit'),
+    title: document.querySelector('.title'),
+    date: document.querySelector('.date'),
+    cloud: document.querySelector('#cloud'),
+    sky: document.querySelector('#sky'),
+    rTemp: document.querySelector('.realTemp'),
+    feels: document.querySelector('.feels'),
+    maxTemp: document.querySelector('.maxTemp'),
+    minTemp: document.querySelector('.minTemp'),
+    speed: document.querySelector('#speed'),
+    humid: document.querySelector('#humidity'),
+  };
 };
 
 const render = () => {
   document.body.innerHTML = layout;
-  setTimeout(() => {}, 0);
+  setTimeout(() => {}, 100000);
+  console.log(elems());
 
   return new Promise((resolve) => {
-    if (elems.bttn !== null) {
+    if (elems().body.childElementCount > 1) {
       resolve('Rendered successfully');
     }
   });
@@ -29,27 +32,27 @@ const render = () => {
 
 const checkForClick = () => {
   let cityName = '';
-  elems.bttn.onclick((e) => {
-    // e.preventDefault();
+  // elems.bttn.addEventListener('click', clickedBttn);
 
+  elems().bttn.onclick = (e) => {
     console.log('Button got clicked');
     console.log(e);
-    cityName = elems.city.value;
-  });
+    cityName = elems().city.value;
+  };
 
   return cityName;
 };
 
 const updateInfo = (values) => {
-  elems.title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
-  elems.rTemp.innerHTML = values.tempDT;
-  elems.feels.innerHTML = values.feelsDt;
-  elems.maxTemp.innerHTML = values.maxTempDT;
-  elems.minTemp.innerHTML = values.minTempDT;
-  elems.sky.innerHTML = values.skyDT;
-  elems.cloud.innerHTML = values.cloudDT;
-  elems.speed.innerHTML = values.speedDT;
-  elems.humid.innerHTML = values.humidDT;
+  elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
+  elems().rTemp.innerHTML = values.tempDT;
+  elems().feels.innerHTML = values.feelsDt;
+  elems().maxTemp.innerHTML = values.maxTempDT;
+  elems().minTemp.innerHTML = values.minTempDT;
+  elems().sky.innerHTML = values.skyDT;
+  elems().cloud.innerHTML = values.cloudDT;
+  elems().speed.innerHTML = values.speedDT;
+  elems().humid.innerHTML = values.humidDT;
 };
 
 
@@ -59,3 +62,6 @@ export {
   checkForClick,
   updateInfo,
 };
+
+// let f = document.querySelector('#flag');
+// f.onclick = () => console.log('flag was clicked');

@@ -16,8 +16,11 @@ function start() {
   //   }
   // });
 
-  render().then((message) => {
-    const newSearch = checkForClick();
+  render().then((mssg) => console.log(mssg)).then((message) => {
+    console.log('before checking for click');
+    checkForClick();
+    console.log('after checking for click');
+    // console.log(newSearch);
 
     const newValues = getTemp(newSearch);
 

@@ -4,7 +4,7 @@ const layout = `
       <h1 class="title">WEATHER APP</h1>
       <form>
         <input id="city" class="input" type="city" placeholder="CITY" required>
-        <button class="submit input" type="button">&#x1f50d;</button>
+        <button id="submit" class="input" type="button">&#x1f50d;</button>
       </form>
     </div>
   </div>

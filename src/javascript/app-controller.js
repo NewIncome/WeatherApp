@@ -1,27 +1,22 @@
-import { render, elems } from './dom-work';
-import getTemp from './api-data';
+import { render, elems, checkForClick } from './dom-work';
 
 function start() {
-  const rendered = new Promise((resolve, reject) => {
-    render();
-
-    if (elems.body.childElementCount > 1) {
-      resolve('Basic HTML rendered OK');
-    } else {
-      reject(new Error('Failed to render'));
-    }
-  });
-
-  rendered.then((message) => {
-    elems.bttn.onclick = getTemp();
-    console.log(`This is the 'then': ${message}`);
-  });
-  // .catch((message) => {
-  //   console.log(`This is the 'catch': ${message}`);
+  // const rendered = new Promise((resolve, reject) => {
+  //   // if (elems.body.children[0].children[0].children[1].hasChildNodes()) {
+  //   if (render()) {
+  //     resolve('Basic HTML rendered OK');
+  //   } else {
+  //     reject(new Error('Failed to render'));
+  //   }
   // });
 
+  render().then((message) => {
+    checkForClick();
+    console.log(`This is the 'then': ${message}`);
+  });
+
   console.log('This is the rendered promise variable: ');
-  console.log(rendered);
+  console.log(render());
 }
 
 

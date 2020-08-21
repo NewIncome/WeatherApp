@@ -14,7 +14,7 @@ const layout = `
       <div id="clouds" class="d">
         <p>Sky</p>
         <img id="cloud" src="https://openweathermap.org/img/wn/04d@4x.png" alt="">
-        <p>broken clouds</p>
+        <p id="sky">broken clouds</p>
       </div>
       <div id="temp" class="d">
         <p class="realTemp">18°</p>
@@ -23,7 +23,7 @@ const layout = `
           <span id="degf">F</span>
         </div>
         <p class="feels">Feels like: <span class="temp2">12°</span></p>
-        <p class="max-min"><span class="temp2">26°</span> / <span class="temp2">26°</span></p>
+        <p class="max-min"><span class="maxTemp t2">26°</span> / <span class="minTemp t2">26°</span></p>
       </div>
     </div>
     <div class="info-2">

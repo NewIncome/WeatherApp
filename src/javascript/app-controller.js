@@ -1,4 +1,10 @@
-import { render, elems, checkForClick } from './dom-work';
+import {
+  render,
+  elems,
+  checkForClick,
+  updateInfo,
+} from './dom-work';
+import getTemp from './api-data';
 
 function start() {
   // const rendered = new Promise((resolve, reject) => {
@@ -11,7 +17,12 @@ function start() {
   // });
 
   render().then((message) => {
-    checkForClick();
+    const newSearch = checkForClick();
+
+    const newValues = getTemp(newSearch);
+
+    updateInfo(newValues);
+
     console.log(`This is the 'then': ${message}`);
   });
 

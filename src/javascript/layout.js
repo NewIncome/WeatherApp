@@ -2,9 +2,9 @@ const layout = `
 <div id="top-backgnd">
     <div id="backgnd">
       <h1 class="title">WEATHER APP</h1>
-      <form action="">
+      <form>
         <input id="city" class="input" type="city" placeholder="CITY" required>
-        <button class="submit input">&#x1f50d;</button>
+        <button class="submit input" type="button">&#x1f50d;</button>
       </form>
     </div>
   </div>

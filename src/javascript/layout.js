@@ -9,7 +9,7 @@ const layout = `
     </div>
   </div>
   <div class="bottom">
-    <h4 class="date">August 19, 2020 <img id="flag" src="https://flagpedia.net/data/flags/w580/mx.png" alt=""></h4>
+    <h4><span class="date">August 19, 2020</span> <img id="flag" src="https://flagpedia.net/data/flags/w580/mx.png" alt=""></h4>
     <div class="info-1">
       <div id="clouds" class="d">
         <p>Sky</p>

@@ -14,7 +14,7 @@ async function getTemp(newCity = 'Toronto') {
   let values = {
     titleDt: weatherData.name,
     countryDt: weatherData.sys.country,
-    tempDT: weatherData.weather[0].main,
+    tempDT: weatherData.main.temp,
     feelsDt: weatherData.main.feels_like,
     maxTempDT: weatherData.main.temp_max,
     minTempDT: weatherData.main.temp_min,

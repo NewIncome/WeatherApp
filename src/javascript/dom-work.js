@@ -8,6 +8,7 @@ const elems = () => {
     bttn: document.querySelector('#submit'),
     title: document.querySelector('.title'),
     date: document.querySelector('.date'),
+    flag: document.querySelector('#flag'),
     cloud: document.querySelector('#cloud'),
     sky: document.querySelector('#sky'),
     rTemp: document.querySelector('.realTemp'),
@@ -31,16 +32,25 @@ const render = () => {
   });
 };
 
+const makeNewDate = () => {
+  const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const date = new Date();
+  return `${Months[date.getMonth() + 1]} ${date.getDate()}, ${date.getFullYear()}`;
+};
+
 const updateInfo = (values) => {
   elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
-  elems().rTemp.innerHTML = values.tempDT;
-  elems().feels.innerHTML = values.feelsDt;
-  elems().maxTemp.innerHTML = values.maxTempDT;
-  elems().minTemp.innerHTML = values.minTempDT;
+  elems().date.innerHTML = makeNewDate();
+  elems().flag.src = `https://flagpedia.net/data/flags/w580/${values.countryDt.toLowerCase()}.png`;
+  elems().rTemp.innerHTML = `${values.tempDT.toFixed(1)}°`;
+  elems().feels.innerHTML = `${values.feelsDt.toFixed(1)}°`;
+  elems().maxTemp.innerHTML = `${values.maxTempDT}°`;
+  elems().minTemp.innerHTML = `${values.minTempDT}°`;
   elems().sky.innerHTML = values.skyDT;
-  elems().cloud.innerHTML = values.cloudDT;
-  elems().speed.innerHTML = values.speedDT;
-  elems().humid.innerHTML = values.humidDT;
+  elems().cloud.src = `https://openweathermap.org/img/wn/${values.cloudDT}@4x.png`;
+  elems().speed.innerHTML = `${values.speedDT} m/s`;
+  elems().humid.innerHTML = `${values.humidDT} %`;
 };
 
 const checkForClick = () => {

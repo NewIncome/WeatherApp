@@ -4,7 +4,6 @@ import {
   checkForClick,
   updateInfo,
 } from './dom-work';
-import getTemp from './api-data';
 
 function start() {
   // const rendered = new Promise((resolve, reject) => {
@@ -18,13 +17,12 @@ function start() {
 
   render().then((mssg) => console.log(mssg)).then((message) => {
     console.log('before checking for click');
-    checkForClick();
+    const newSearch = checkForClick();
     console.log('after checking for click');
-    // console.log(newSearch);
+    console.log('City value: ' + newSearch);
 
-    const newValues = getTemp(newSearch);
 
-    updateInfo(newValues);
+    // getTemp(newSearch).then((newValues) => updateInfo(newValues));
 
     console.log(`This is the 'then': ${message}`);
   });

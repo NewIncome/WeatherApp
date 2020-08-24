@@ -1,4 +1,5 @@
 import layout from './layout';
+import getTemp from './api-data';
 
 const elems = () => {
   return {
@@ -30,19 +31,6 @@ const render = () => {
   });
 };
 
-const checkForClick = () => {
-  let cityName = '';
-  // elems.bttn.addEventListener('click', clickedBttn);
-
-  elems().bttn.onclick = (e) => {
-    console.log('Button got clicked');
-    console.log(e);
-    cityName = elems().city.value;
-  };
-
-  return cityName;
-};
-
 const updateInfo = (values) => {
   elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
   elems().rTemp.innerHTML = values.tempDT;
@@ -53,6 +41,20 @@ const updateInfo = (values) => {
   elems().cloud.innerHTML = values.cloudDT;
   elems().speed.innerHTML = values.speedDT;
   elems().humid.innerHTML = values.humidDT;
+};
+
+const checkForClick = () => {
+  let cityName = '';
+  // elems.bttn.addEventListener('click', clickedBttn);
+
+  elems().bttn.onclick = (e) => {
+    console.log('Button got clicked');
+    cityName = elems().city.value;
+
+    getTemp(cityName).then((newValues) => updateInfo(newValues));
+  };
+
+  return cityName;
 };
 
 

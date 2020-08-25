@@ -17,13 +17,13 @@ const layout = `
         <p id="sky">broken clouds</p>
       </div>
       <div id="temp" class="d">
-        <p><span class="realTemp">18</span>°</p>
+        <p class="realTemp-p"><span class="realTemp">18.0</span>°</p>
         <div id="degrees" class="celsius">
           <span id="degc">C</span>/
           <span id="degf">F</span>
         </div>
-        <p class="feels">Feels like: <span class="temp2">12</span>°</p>
-        <p class="max-min"><span class="maxTemp t2">26</span>° / <span class="minTemp t2">26</span>°</p>
+        <p class="feels">Feels like: <span class="temp2">12</span><span class="t2">°</span></p>
+        <p class="max-min"><span class="maxTemp t2">26.0</span><span class="t2">°</span> / <span class="minTemp t2">26.0</span><span class="t2">°</span></p>
       </div>
     </div>
     <div class="info-2">

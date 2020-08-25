@@ -11,7 +11,7 @@ async function getTemp(newCity = 'Toronto') {
   console.log(weatherData);
   // console.log(weatherData.main);
 
-  let values = {
+  const values = {
     titleDt: weatherData.name,
     countryDt: weatherData.sys.country,
     tempDT: weatherData.main.temp,

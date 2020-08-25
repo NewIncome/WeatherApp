@@ -12,6 +12,7 @@ const elems = () => {
     cloud: document.querySelector('#cloud'),
     sky: document.querySelector('#sky'),
     rTemp: document.querySelector('.realTemp'),
+    degree: document.querySelector('#degrees'),
     feels: document.querySelector('.feels'),
     maxTemp: document.querySelector('.maxTemp'),
     minTemp: document.querySelector('.minTemp'),
@@ -43,10 +44,10 @@ const updateInfo = (values) => {
   elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
   elems().date.innerHTML = makeNewDate();
   elems().flag.src = `https://flagpedia.net/data/flags/w580/${values.countryDt.toLowerCase()}.png`;
-  elems().rTemp.innerHTML = `${values.tempDT.toFixed(1)}°`;
-  elems().feels.innerHTML = `${values.feelsDt.toFixed(1)}°`;
-  elems().maxTemp.innerHTML = `${values.maxTempDT}°`;
-  elems().minTemp.innerHTML = `${values.minTempDT}°`;
+  elems().rTemp.innerHTML = values.tempDT.toFixed(1);
+  elems().feels.innerHTML = values.feelsDt.toFixed(1);
+  elems().maxTemp.innerHTML = values.maxTempDT.toFixed(1);
+  elems().minTemp.innerHTML = values.minTempDT.toFixed(1);
   elems().sky.innerHTML = values.skyDT;
   elems().cloud.src = `https://openweathermap.org/img/wn/${values.cloudDT}@4x.png`;
   elems().speed.innerHTML = `${values.speedDT} m/s`;
@@ -67,12 +68,34 @@ const checkForClick = () => {
   return cityName;
 };
 
+const tempC2F = (tempC) => ((tempC * (9 / 5)) + 32).toFixed(1);
+
+const tempF2C = (tempF) => ((tempF - 32) / 1.8).toFixed(1);
+
+const updateTempValues = (changeFunc) => {
+  elems().rTemp.innerHTML = changeFunc(+elems().rTemp.innerHTML);
+  elems().feels.innerHTML = changeFunc(+elems().feels.innerHTML);
+  elems().maxTemp.innerHTML = changeFunc(+elems().maxTemp.innerHTML);
+  elems().minTemp.innerHTML = changeFunc(+elems().minTemp.innerHTML);
+};
+
+const changeTemp = () => {
+  elems().degree.onclick = () => {
+    if (elems().degree.className === 'celsius') {
+      elems().degree.className = 'farenheight';
+      updateTempValues(tempC2F);
+    } else {
+      elems().degree.className = 'celsius';
+      updateTempValues(tempF2C);
+    }
+  };
+};
+
 
 export {
   render,
-  elems,
   checkForClick,
-  updateInfo,
+  changeTemp,
 };
 
 // let f = document.querySelector('#flag');

@@ -61,8 +61,7 @@
   
     .d { width: 50%; }
   
-    #degrees { // to -72deg
-      background: linear-gradient(108deg,#ffb600 50%,#fff7e4 50%);
+    #degrees {
       border: 4px solid #fff7e4;
       border-radius: 10px;
       cursor: pointer;
@@ -70,6 +69,10 @@
       padding: 5px;
       width: 50px;
     }
+
+    .celsius { background: linear-gradient(108deg,#ffb600 50%,#fff7e4 50%); }
+
+    .farenheight { background: linear-gradient(-72deg,#ffb600 50%,#fff7e4 50%); }
 
     .feels { padding-bottom: 7px; }
   }

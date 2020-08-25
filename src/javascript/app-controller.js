@@ -1,8 +1,7 @@
 import {
   render,
-  elems,
   checkForClick,
-  updateInfo,
+  changeTemp,
 } from './dom-work';
 
 function start() {
@@ -25,6 +24,8 @@ function start() {
     // getTemp(newSearch).then((newValues) => updateInfo(newValues));
 
     console.log(`This is the 'then': ${message}`);
+  }).then((msg) => {
+    changeTemp();
   });
 
   console.log('This is the rendered promise variable: ');

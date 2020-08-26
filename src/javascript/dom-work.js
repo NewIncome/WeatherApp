@@ -34,6 +34,7 @@ const elems = () => {
 const render = () => {
   document.body.innerHTML = layout;
   setTimeout(() => {}, 100000);
+  elems().backgnd.style.backgroundImage = `url("https://pixabay.com/get/54e1d4444953ac14f6da8c7dda793676153bd9e657576c48702673d09748c650bb_1280.jpg")`;
   console.log(elems());
 
   return new Promise((resolve) => {

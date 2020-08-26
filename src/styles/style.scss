@@ -20,7 +20,7 @@
   #imgAPI {
     position: absolute;
     top: 425px;
-    right: 17px;
+    right: 3%;
     width: 35px;
     opacity: 0.3;
     transform: rotate(5deg);
@@ -63,7 +63,10 @@
     }
   }
 
-  #cloud { width: 65%; }
+  #cloud {
+    max-width: 180px;
+    width: 65%;
+  }
 
   .info-1 {
     display: flex;

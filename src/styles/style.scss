@@ -8,7 +8,8 @@
 #top-backgnd { height: 50vh; }
 
 #backgnd {
-  background: url(https://wallpapercave.com/wp/SGTFbTV.jpg) center 50%/172% no-repeat;
+  // background: url(https://wallpapercave.com/wp/SGTFbTV.jpg) center 50%/172% no-repeat;
+  background-size: cover;
   clip-path: polygon(25% 5%, 50% 0, 75% 5%, 100% 0, 97% 100%, 50% 94%, 3% 100%, 0 0);
   color: #fff;
   display: flex;

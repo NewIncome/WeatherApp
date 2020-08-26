@@ -1,9 +1,11 @@
 import layout from './layout';
 import getTemp from './api-data';
+import getCityImage from './city-image-api';
 
 const elems = () => {
   return {
     body: document.body,
+    backgnd: document.querySelector('#backgnd'),
     city: document.querySelector('#city'),
     bttn: document.querySelector('#submit'),
     title: document.querySelector('.title'),
@@ -34,13 +36,16 @@ const render = () => {
 };
 
 const makeNewDate = () => {
-  const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const date = new Date();
   return `${Months[date.getMonth() + 1]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
-const updateInfo = (values) => {
+const updateInfo = (values, city) => {
+  getCityImage(city).then((link) => {
+    elems().backgnd.style.backgroundImage = `url(${link})`;
+  });
   elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
   elems().date.innerHTML = makeNewDate();
   elems().flag.src = `https://flagpedia.net/data/flags/w580/${values.countryDt.toLowerCase()}.png`;
@@ -58,11 +63,10 @@ const checkForClick = () => {
   let cityName = '';
   // elems.bttn.addEventListener('click', clickedBttn);
 
-  elems().bttn.onclick = (e) => {
-    console.log('Button got clicked');
+  elems().bttn.onclick = () => {
     cityName = elems().city.value;
 
-    getTemp(cityName).then((newValues) => updateInfo(newValues));
+    getTemp(cityName).then((newValues) => updateInfo(newValues, cityName));
   };
 
   return cityName;

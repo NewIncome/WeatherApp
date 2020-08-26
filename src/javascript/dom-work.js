@@ -2,6 +2,14 @@ import layout from './layout';
 import getTemp from './api-data';
 import getCityImage from './city-image-api';
 
+const colorTemps = {
+  0: '#6cb9f4',
+  10: '#6cf0f7',
+  20: '#fbce73',
+  30: '#f19f6c',
+  40: '#f2706e',
+};
+
 const elems = () => {
   return {
     body: document.body,
@@ -57,6 +65,8 @@ const updateInfo = (values, city) => {
   elems().cloud.src = `https://openweathermap.org/img/wn/${values.cloudDT}@4x.png`;
   elems().speed.innerHTML = `${values.speedDT} m/s`;
   elems().humid.innerHTML = `${values.humidDT} %`;
+  // reset temp
+  elems().degree.className = 'celsius';
 };
 
 const checkForClick = () => {

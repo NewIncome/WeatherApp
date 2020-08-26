@@ -6,6 +6,7 @@ const layout = `
         <input id="city" class="input" type="city" placeholder="CITY" required>
         <button id="submit" class="input" type="button">&#x1f50d;</button>
       </form>
+      <img id="imgAPI" src="https://pixabay.com/static/img/logo_square.png" alt="">
     </div>
   </div>
   <div class="bottom">

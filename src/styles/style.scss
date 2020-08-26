@@ -17,6 +17,15 @@
   height: 100%;
   justify-content: space-around;
 
+  #imgAPI {
+    position: absolute;
+    top: 425px;
+    right: 17px;
+    width: 35px;
+    opacity: 0.3;
+    transform: rotate(5deg);
+  }
+
   .input {
     border: none;
     font-size: 1em;

@@ -10,35 +10,32 @@ const colorTemps = {
   40: '#ffc6b3',
 };
 
-const elems = () => {
-  return {
-    body: document.body,
-    backgnd: document.querySelector('#backgnd'),
-    city: document.querySelector('#city'),
-    bttn: document.querySelector('#submit'),
-    title: document.querySelector('.title'),
-    pgBttm: document.querySelector('#bottom'),
-    error: document.querySelector('#error'),
-    errMssg: document.querySelector('.errMssg'),
-    date: document.querySelector('.date'),
-    flag: document.querySelector('#flag'),
-    cloud: document.querySelector('#cloud'),
-    sky: document.querySelector('#sky'),
-    rTemp: document.querySelector('.realTemp'),
-    degree: document.querySelector('#degrees'),
-    feels: document.querySelector('.feels'),
-    maxTemp: document.querySelector('.maxTemp'),
-    minTemp: document.querySelector('.minTemp'),
-    speed: document.querySelector('#speed'),
-    humid: document.querySelector('#humidity'),
-  };
-};
+const elems = () => ({
+  body: document.body,
+  backgnd: document.querySelector('#backgnd'),
+  city: document.querySelector('#city'),
+  bttn: document.querySelector('#submit'),
+  title: document.querySelector('.title'),
+  pgBttm: document.querySelector('#bottom'),
+  error: document.querySelector('#error'),
+  errMssg: document.querySelector('.errMssg'),
+  date: document.querySelector('.date'),
+  flag: document.querySelector('#flag'),
+  cloud: document.querySelector('#cloud'),
+  sky: document.querySelector('#sky'),
+  rTemp: document.querySelector('.realTemp'),
+  degree: document.querySelector('#degrees'),
+  feels: document.querySelector('.feels'),
+  maxTemp: document.querySelector('.maxTemp'),
+  minTemp: document.querySelector('.minTemp'),
+  speed: document.querySelector('#speed'),
+  humid: document.querySelector('#humidity'),
+});
 
 const render = () => {
   document.body.innerHTML = layout;
   setTimeout(() => {}, 100000);
-  elems().backgnd.style.backgroundImage = `url("https://cdn.pixabay.com/photo/2018/06/03/00/18/sea-3449509_1280.jpg")`;
-  console.log(elems());
+  elems().backgnd.style.backgroundImage = 'url("https://cdn.pixabay.com/photo/2018/06/03/00/18/sea-3449509_1280.jpg")';
 
   return new Promise((resolve) => {
     if (elems().body.childElementCount > 1) {
@@ -76,11 +73,9 @@ const updateInfo = (values, city) => {
   elems().degree.className = 'celsius';
 };
 
-const errorFunc = (mssg) => {
+const errorFunc = () => {
   elems().pgBttm.className = 'hidden';
   elems().error.className = 'unhidden';
-  console.log(mssg);
-  console.log(Object.getOwnPropertyDescriptors(mssg));
 };
 
 const checkForClick = () => {
@@ -127,6 +122,3 @@ export {
   changeTemp,
   errorFunc,
 };
-
-// let f = document.querySelector('#flag');
-// f.onclick = () => console.log('flag was clicked');

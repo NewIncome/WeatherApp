@@ -1,15 +1,6 @@
 async function getTemp(newCity = 'Toronto') {
-  // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=550a45bc4aa9613e4687926216e69765`);
-  // const weatherData = await response.json();
-  const weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=550a45bc4aa9613e4687926216e69765`).then((response) => response.json()).then((data) => {
-    console.log('Data: ');
-    console.log(data);
-    return data;
-  });
-
-  // console.log('Weather Data: ');
-  console.log(weatherData);
-  // console.log(weatherData.main);
+  const weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=550a45bc4aa9613e4687926216e69765`)
+    .then((response) => response.json()).then((data) => data);
 
   const values = {
     titleDt: weatherData.name,

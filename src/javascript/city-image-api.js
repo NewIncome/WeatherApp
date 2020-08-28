@@ -10,9 +10,6 @@ const getCityImage = async (city) => {
   const defaultImgResponse = await fetch('https://pixabay.com/api/?key=18047346-216df018667992ef1ffc2341e&q=city&image_type=photo');
   const defaultImage = await defaultImgResponse.json();
 
-  console.log('rNum');
-  console.log(rNum(defaultImage.hits));
-
   if (typeof pixImage.hits[0] !== 'undefined') return pixImage.hits[0].largeImageURL;
   return defaultImage.hits[rNum(defaultImage.hits)].largeImageURL;
 };

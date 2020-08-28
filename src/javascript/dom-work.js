@@ -17,6 +17,8 @@ const elems = () => {
     city: document.querySelector('#city'),
     bttn: document.querySelector('#submit'),
     title: document.querySelector('.title'),
+    pgBttm: document.querySelector('#bottom'),
+    error: document.querySelector('.error'),
     date: document.querySelector('.date'),
     flag: document.querySelector('#flag'),
     cloud: document.querySelector('#cloud'),
@@ -57,6 +59,8 @@ const updateInfo = (values, city) => {
     elems().backgnd.style.backgroundImage = `url(${link})`;
   });
   elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
+  elems().pgBttm.className = 'unhidden';
+  elems().error.className = 'hidden';
   elems().date.innerHTML = makeNewDate();
   elems().flag.src = `https://flagpedia.net/data/flags/w580/${values.countryDt.toLowerCase()}.png`;
   elems().rTemp.innerHTML = values.tempDT.toFixed(1);
@@ -107,11 +111,17 @@ const changeTemp = () => {
   };
 };
 
+const errorFunc = () => {
+  elems().pgBttm.className = 'hidden';
+  elems().error.className = 'unhidden';
+};
+
 
 export {
   render,
   checkForClick,
   changeTemp,
+  errorFunc,
 };
 
 // let f = document.querySelector('#flag');

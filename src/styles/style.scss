@@ -46,7 +46,7 @@
   }
 }
 
-.bottom {
+#bottom {
   height: 45vh;
 
   .date { margin-bottom: 30px; }
@@ -93,7 +93,9 @@
   .info-2 { padding: 30px 0; }
 }
 
+.errImg { width: 50%; }
 
+.hidden { display: none; }
 
 // font sizes
 .title { font-size: 3em; }

@@ -9,7 +9,7 @@ const layout = `
       <img id="imgAPI" src="https://pixabay.com/static/img/logo_square.png" alt="">
     </div>
   </div>
-  <div class="bottom">
+  <div id="bottom" class="unhidden">
     <h4><span class="date">August 19, 2020</span> <img id="flag" src="https://flagpedia.net/data/flags/w580/mx.png" alt=""></h4>
     <div class="info-1">
       <div id="clouds" class="d">
@@ -31,6 +31,10 @@ const layout = `
       <p id="speed">1008 m/s</p>
       <p id="humidity">88%</p>
     </div>
+  </div>
+  <div id="error" class="hidden">
+    <img class="errImg" src="https://i.pinimg.com/originals/e1/d9/0a/e1d90a51af2912515fc678acb1c677ae.png" alt="">
+    <h3 class="errTitle">City not in planet Earth</h3>
   </div>
 `;
 

@@ -45,6 +45,7 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     margin-left: -5px;
+
     .mglass {
       display: block;
       transform: rotate(108deg);
@@ -55,7 +56,10 @@
 #bottom {
   height: 45vh;
 
-  .date { margin-bottom: 30px; }
+  .date {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
 
   #flag {
     margin-bottom: -15px;
@@ -63,10 +67,9 @@
     width: 80px;
     animation: oscill 2s ease-in-out infinite alternate;
   }
+
   @keyframes oscill {
-    100% {
-    transform: translateY(3px) rotate(0.01deg);
-    }
+    100% { transform: translateY(3px) rotate(0.01deg); }
   }
 
   #cloud {
@@ -78,9 +81,9 @@
   .info-1 {
     display: flex;
     padding: 30px 0;
-  
+
     .d { width: 50%; }
-  
+
     #degrees {
       border: 4px solid #fff7e4;
       border-radius: 10px;
@@ -90,10 +93,8 @@
       width: 50px;
     }
 
-    .celsius { background: linear-gradient(108deg,#ffb600 50%,#fff7e4 50%); }
-
-    .farenheight { background: linear-gradient(-72deg,#ffb600 50%,#fff7e4 50%); }
-
+    .celsius { background: linear-gradient(108deg, #ffb600 50%, #fff7e4 50%); }
+    .farenheight { background: linear-gradient(-72deg, #ffb600 50%, #fff7e4 50%); }
     .feels { padding-bottom: 7px; }
   }
 
@@ -106,6 +107,7 @@
   opacity: 0.6;
   width: 50%;
 }
+
 .errTitle {
   font-style: italic;
   opacity: 0.6;
@@ -116,8 +118,7 @@
 // font sizes
 .title { font-size: 3em; }
 .realTemp-p { font-size: 4em; }
-.t2,
-.date { font-size: 1.2em; }
+.t2 { font-size: 1.2em; }
 
 // speed and temp icons
 .icon {

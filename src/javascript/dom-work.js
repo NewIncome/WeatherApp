@@ -73,13 +73,13 @@ const updateInfo = (values, city) => {
 
 const checkForClick = () => {
   let cityName = '';
-  // elems.bttn.addEventListener('click', clickedBttn);
 
-  elems().bttn.onclick = () => {
+  document.body.parentNode.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     cityName = elems().city.value;
-
     getTemp(cityName).then((newValues) => updateInfo(newValues, cityName));
-  };
+  });
 
   return cityName;
 };

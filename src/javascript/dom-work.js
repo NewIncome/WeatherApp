@@ -3,11 +3,11 @@ import getTemp from './api-data';
 import getCityImage from './city-image-api';
 
 const colorTemps = {
-  0: '#6cb9f4',
-  10: '#6cf0f7',
-  20: '#fbce73',
-  30: '#f19f6c',
-  40: '#f2706e',
+  0: '#b3c6ff',
+  10: '#b3e4ff',
+  20: '#fff8b3',
+  30: '#ffecb3',
+  40: '#ffc6b3',
 };
 
 const elems = () => {
@@ -34,7 +34,7 @@ const elems = () => {
 const render = () => {
   document.body.innerHTML = layout;
   setTimeout(() => {}, 100000);
-  elems().backgnd.style.backgroundImage = `url("https://pixabay.com/get/54e1d4444953ac14f6da8c7dda793676153bd9e657576c48702673d09748c650bb_1280.jpg")`;
+  elems().backgnd.style.backgroundImage = `url("https://cdn.pixabay.com/photo/2018/06/03/00/18/sea-3449509_1280.jpg")`;
   console.log(elems());
 
   return new Promise((resolve) => {
@@ -52,6 +52,7 @@ const makeNewDate = () => {
 };
 
 const updateInfo = (values, city) => {
+  elems().body.style.backgroundColor = colorTemps[`${((values.tempDT / 10).toFixed(0)) * 10}`];
   getCityImage(city).then((link) => {
     elems().backgnd.style.backgroundImage = `url(${link})`;
   });

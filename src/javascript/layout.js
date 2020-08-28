@@ -34,7 +34,7 @@ const layout = `
   </div>
   <div id="error" class="hidden">
     <img class="errImg" src="https://i.pinimg.com/originals/e1/d9/0a/e1d90a51af2912515fc678acb1c677ae.png" alt="">
-    <h3 class="errTitle">City not in planet Earth</h3>
+    <p class="errTitle">Error: "City may not be in planet Earth"</p>
   </div>
 `;
 

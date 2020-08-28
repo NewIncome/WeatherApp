@@ -18,7 +18,8 @@ const elems = () => {
     bttn: document.querySelector('#submit'),
     title: document.querySelector('.title'),
     pgBttm: document.querySelector('#bottom'),
-    error: document.querySelector('.error'),
+    error: document.querySelector('#error'),
+    errMssg: document.querySelector('.errMssg'),
     date: document.querySelector('.date'),
     flag: document.querySelector('#flag'),
     cloud: document.querySelector('#cloud'),
@@ -75,6 +76,13 @@ const updateInfo = (values, city) => {
   elems().degree.className = 'celsius';
 };
 
+const errorFunc = (mssg) => {
+  elems().pgBttm.className = 'hidden';
+  elems().error.className = 'unhidden';
+  console.log(mssg);
+  console.log(Object.getOwnPropertyDescriptors(mssg));
+};
+
 const checkForClick = () => {
   let cityName = '';
 
@@ -82,7 +90,9 @@ const checkForClick = () => {
     e.preventDefault();
 
     cityName = elems().city.value;
-    getTemp(cityName).then((newValues) => updateInfo(newValues, cityName));
+    getTemp(cityName)
+      .then((newValues) => updateInfo(newValues, cityName))
+      .catch((err) => errorFunc(err));
   });
 
   return cityName;
@@ -110,12 +120,6 @@ const changeTemp = () => {
     }
   };
 };
-
-const errorFunc = () => {
-  elems().pgBttm.className = 'hidden';
-  elems().error.className = 'unhidden';
-};
-
 
 export {
   render,

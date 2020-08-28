@@ -4,7 +4,7 @@ const layout = `
       <h1 class="title">WEATHER APP</h1>
       <form>
         <input id="city" class="input" type="city" placeholder="CITY" required>
-        <button id="submit" class="input" type="submit">&#x1f50d;</button>
+        <button id="submit" class="input" type="submit"><span class="mglass">&#9740;</span></button>
       </form>
       <img id="imgAPI" src="https://pixabay.com/static/img/logo_square.png" alt="">
     </div>
@@ -28,8 +28,8 @@ const layout = `
       </div>
     </div>
     <div class="info-2">
-      <p id="speed">1008 m/s</p>
-      <p id="humidity">88%</p>
+      <img class="icon" src="https://fawn.ifas.ufl.edu/mffw/img/current_icon/wind.png" alt=""><p id="speed">1008 m/s</p></br>
+      <img class="icon drop" src="https://image.flaticon.com/icons/png/512/172/172928.png" alt=""><p id="humidity">88%</p>
     </div>
   </div>
   <div id="error" class="hidden">

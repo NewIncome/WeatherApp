@@ -35,6 +35,8 @@
   #city {
     background: #fff7;
     border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    height: 35px;
     &:focus { background: #fffc; }
   }
 
@@ -43,6 +45,10 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     margin-left: -5px;
+    .mglass {
+      display: block;
+      transform: rotate(108deg);
+    }
   }
 }
 
@@ -111,3 +117,13 @@
 .realTemp-p { font-size: 4em; }
 .t2,
 .date { font-size: 1.2em; }
+
+// speed and temp icons
+.icon {
+  width: 18px;
+  margin-right: 5px;
+}
+.drop { opacity: 0.5; }
+
+#humidity,
+#speed { display: inline-block; }

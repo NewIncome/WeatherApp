@@ -1,6 +1,8 @@
 async function getTemp(newCity = 'Toronto') {
   const weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=550a45bc4aa9613e4687926216e69765`)
-    .then((response) => response.json()).then((data) => data);
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch(() => new Error('404: City not found'));
 
   const values = {
     titleDt: weatherData.name,

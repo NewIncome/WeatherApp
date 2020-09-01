@@ -51,24 +51,35 @@ const makeNewDate = () => {
   return `${Months[date.getMonth() + 1]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
-const updateInfo = (values, city) => {
-  elems().body.style.backgroundColor = colorTemps[`${((values.tempDT / 10).toFixed(0)) * 10}`];
+const updateInfo = ({
+  titleDt,
+  countryDt,
+  tempDT,
+  feelsDt,
+  maxTempDT,
+  minTempDT,
+  skyDT,
+  cloudDT,
+  speedDT,
+  humidDT,
+}, city) => {
+  elems().body.style.backgroundColor = colorTemps[`${((tempDT / 10).toFixed(0)) * 10}`];
   getCityImage(city).then((link) => {
     elems().backgnd.style.backgroundImage = `url(${link})`;
   });
-  elems().title.innerHTML = `${values.titleDt}, ${values.countryDt}`;
+  elems().title.innerHTML = `${titleDt}, ${countryDt}`;
   elems().pgBttm.className = 'unhidden';
   elems().error.className = 'hidden';
   elems().date.innerHTML = makeNewDate();
-  elems().flag.src = `https://flagpedia.net/data/flags/w580/${values.countryDt.toLowerCase()}.png`;
-  elems().rTemp.innerHTML = values.tempDT.toFixed(1);
-  elems().feels.innerHTML = values.feelsDt.toFixed(1);
-  elems().maxTemp.innerHTML = values.maxTempDT.toFixed(1);
-  elems().minTemp.innerHTML = values.minTempDT.toFixed(1);
-  elems().sky.innerHTML = values.skyDT;
-  elems().cloud.src = `https://openweathermap.org/img/wn/${values.cloudDT}@4x.png`;
-  elems().speed.innerHTML = `${values.speedDT} m/s`;
-  elems().humid.innerHTML = `${values.humidDT} %`;
+  elems().flag.src = `https://flagpedia.net/data/flags/w580/${countryDt.toLowerCase()}.png`;
+  elems().rTemp.innerHTML = tempDT.toFixed(1);
+  elems().feels.innerHTML = feelsDt.toFixed(1);
+  elems().maxTemp.innerHTML = maxTempDT.toFixed(1);
+  elems().minTemp.innerHTML = minTempDT.toFixed(1);
+  elems().sky.innerHTML = skyDT;
+  elems().cloud.src = `https://openweathermap.org/img/wn/${cloudDT}@4x.png`;
+  elems().speed.innerHTML = `${speedDT} m/s`;
+  elems().humid.innerHTML = `${humidDT} %`;
   // reset temp
   elems().degree.className = 'celsius';
 };

@@ -4,12 +4,12 @@ import {
   changeTemp,
 } from './dom-work';
 
-function start() {
+const start = () => {
   render().then(() => {
     checkForClick();
   }).then(() => {
     changeTemp();
   });
-}
+};
 
 export default start;

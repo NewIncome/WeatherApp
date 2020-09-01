@@ -48,7 +48,7 @@ const makeNewDate = () => {
   const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const date = new Date();
-  return `${Months[date.getMonth() + 1]} ${date.getDate()}, ${date.getFullYear()}`;
+  return `${Months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
 const updateInfo = ({

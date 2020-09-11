@@ -1,0 +1,130 @@
+* {
+  font-family: 'Russo One', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#top-backgnd { height: 50vh; }
+
+#backgnd {
+  background-size: cover;
+  clip-path: polygon(25% 5%, 50% 0, 75% 5%, 100% 0, 97% 100%, 50% 94%, 3% 100%, 0 0);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+
+  #imgAPI {
+    position: absolute;
+    top: 425px;
+    right: 3%;
+    width: 35px;
+    opacity: 0.3;
+    transform: rotate(5deg);
+  }
+
+  .input {
+    border: none;
+    font-size: 1em;
+    padding: 8px 15px;
+  }
+
+  #city {
+    background: #fff7;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    height: 35px;
+    &:focus { background: #fffc; }
+  }
+
+  #submit {
+    background: #e8e8e7;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    margin-left: -5px;
+
+    .mglass {
+      display: block;
+      transform: rotate(108deg);
+    }
+  }
+}
+
+#bottom {
+  height: 45vh;
+
+  .date {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  #flag {
+    margin-bottom: -15px;
+    opacity: 0.6;
+    width: 80px;
+    animation: oscill 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes oscill {
+    100% { transform: translateY(3px) rotate(0.01deg); }
+  }
+
+  #cloud {
+    filter: contrast(65%);
+    max-width: 180px;
+    width: 65%;
+  }
+
+  .info-1 {
+    display: flex;
+    padding: 30px 0;
+
+    .d { width: 50%; }
+
+    #degrees {
+      border: 4px solid #fff7e4;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px auto 20px;
+      padding: 5px;
+      width: 50px;
+    }
+
+    .celsius { background: linear-gradient(108deg, #ffb600 50%, #fff7e4 50%); }
+    .farenheight { background: linear-gradient(-72deg, #ffb600 50%, #fff7e4 50%); }
+    .feels { padding-bottom: 7px; }
+  }
+
+  .info-2 { padding: 30px 0; }
+}
+
+.errImg {
+  margin-bottom: 20px;
+  max-width: 400px;
+  opacity: 0.6;
+  width: 50%;
+}
+
+.errTitle {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.hidden { display: none; }
+
+// font sizes
+.title { font-size: 3em; }
+.realTemp-p { font-size: 4em; }
+.t2 { font-size: 1.2em; }
+
+// speed and temp icons
+.icon {
+  width: 18px;
+  margin-right: 5px;
+}
+.drop { opacity: 0.5; }
+
+#humidity,
+#speed { display: inline-block; }
